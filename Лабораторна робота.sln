@@ -1,28 +1,134 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.12.35521.163 d17.12
-MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Лабораторна робота", "Лабораторна робота\Лабораторна робота.vcxproj", "{C044015F-99B4-4739-849F-B5C64ADECACD}"
-EndProject
-Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|x64 = Debug|x64
-		Debug|x86 = Debug|x86
-		Release|x64 = Release|x64
-		Release|x86 = Release|x86
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Debug|x64.ActiveCfg = Debug|x64
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Debug|x64.Build.0 = Debug|x64
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Debug|x86.ActiveCfg = Debug|Win32
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Debug|x86.Build.0 = Debug|Win32
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Release|x64.ActiveCfg = Release|x64
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Release|x64.Build.0 = Release|x64
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Release|x86.ActiveCfg = Release|Win32
-		{C044015F-99B4-4739-849F-B5C64ADECACD}.Release|x86.Build.0 = Release|Win32
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
-	EndGlobalSection
-EndGlobal
+#include <iostream>
+#include <Windows.h>
+#include <iomanip>
+using namespace std;
+
+int main()
+{
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+    string name; // 1
+
+    cout << "Як Вас звуть? = ";
+    cin >> name;
+
+    cout << "Доброго дня, " << name << "!" << endl;
+    char str[1000]; // 2
+    cout << "Введіть рядок довільного тексту: ";
+    cin.ignore(32767, '\n');
+    cin.getline(str, 1000);
+    cout << "Ваш текст: " << str << endl;
+
+
+    int A, B; // 3
+
+    cout << "Введіть А і B: ";
+    cin >> A;
+    cin >> B;
+    cout << "A= " << A << "  B= " << B << endl;
+    int temp;
+    temp = A;
+    A = B;
+    B = temp;
+    cout << "A= " << A << "  B= " << B << endl;
+    int C; // 4
+    cout << "Введіть A і B і С: ";
+    cin >> A;
+    cin >> B;
+    cin >> C;
+    cout << "A= " << A << " B= " << B << " C= " << C << endl;
+    temp = A;
+    A = C;
+    C = B;
+    B = temp;
+    cout << "A= " << A << " B= " << B << " C= " << C << endl;
+    int D; // 5
+    cout << "Введіть A і B і С і D: ";
+    cin >> A;
+    cin >> B;
+    cin >> C;
+    cin >> D;
+
+    cout << "A= " << A << " B= " << B << " C= " << C << " D= " << D << endl;
+    temp = B;
+    B = A;
+    A = D;
+    D = C;
+    C = temp;
+    cout << "A= " << A << " B= " << B << " C= " << C << " D= " << D << endl;
+
+    char namen[20], un[30]; // 6
+    int N;
+    cout << " Як Вас звуть? - ";
+    cin.ignore(32767, '\n');
+    cin.getline(namen, 20);
+    cout << " Скільки Вам років? - ";
+    cin >> N;
+    cout << " Де Ви навчаєтесь? - ";
+    cin.ignore(32767, '\n');
+    cin.getline(un, 30);
+    cout << "Доброго дня, " << namen << "!\n"
+        "Вітаємо Вас, Вам усього " << N << ", а Ви вже ведете діалог з комп'ютером!\n"
+        << un << " буде пишатися Вами!" << endl; 
+
+    {
+        char name[20], surname[20], middle[20], mw[10], address[50], un[30], group[15], hobby[50]; // 7
+        int date, tel;
+        cout << "              Прізвище?= : ";
+        cin.getline(surname, 20);
+        cout << "                  Ім'я?= : ";
+        cin.getline(name, 20);
+        cout << "           По батькові?= : ";
+        cin.getline(middle, 20);
+        cout << "                 Стать?= : ";
+        cin.getline(mw,10) ;
+        cout << "Дата народження?(разом)= : ";
+        cin >> date;
+        cout << "                Адреса?= : ";
+        cin.ignore(32767, '\n');
+        cin.getline(address, 50);
+        cout << "        Номер телефону?= : ";
+        cin >> tel;
+        cout << "        Місце навчання?= : ";
+        cin.ignore(32767, '\n');
+        cin.getline(un, 30);
+        cout << "                 Група?= : ";
+        cin.getline(group, 15);
+        cout << "                 Хоббі?= : ";
+        cin.getline(hobby, 50);
+
+        cout  << "Прізвище : " << setw(13) << left << surname <<   "Ім'я : " << setw(9) << left << name <<  "По батікові : " << middle << endl;
+        cout <<  "Номер телефону : " << setw(23) << left << tel <<  "Хоббі : " << hobby <<  endl;
+        cout <<  "Місце навчання : " << setw(23) << left << un  << "Група : " << group <<  endl;
+        cout << "Дата народження : " << setw(22) << left << setprecision(9) <<  date <<  "Стать : " << mw <<  endl;
+        cout << "Адреса :" << address << endl; 
+
+
+    } 
+    char s[10]; // 8
+    int b;
+    cout << "Задумайте якесь число" << endl;
+    cout << "Задумали?" << endl;
+    cin.getline(s, 10);
+    cout << "До цього числа додайте 2" << endl;
+    cout << "Потім помножте на 2" << endl;
+    cout << "Від отриманого числа відніміть 4" << endl;
+    cout << "Тепер поділіть на 2" << endl;
+    cout << "І помножте на 5" << endl;
+    cout << "Напишіть отримане вами число ";
+    cin >> b;
+    cout << "Число яке ви задумали є " << (b / 5 * 2 + 4) / 2 - 2 << endl;
+
+
+
+
+
+
+
+
+
+    system("pause");
+
+
+
+}
